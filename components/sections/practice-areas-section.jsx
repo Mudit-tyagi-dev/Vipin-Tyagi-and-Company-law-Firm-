@@ -16,35 +16,35 @@ const iconMap = {
 };
 export function PracticeAreasSection() {
   const sectionRef = useRef(null);
-  useEffect(() => {
-    const ctx = gsap.context(() => {
-      gsap.from('.practice-header > *', {
-        scrollTrigger: {
-          trigger: '.practice-header',
-          start: 'top 80%',
-          toggleActions: 'play none none none'
-        },
-        y: 50,
-        opacity: 0,
-        duration: 0.8,
-        stagger: 0.15,
-        ease: 'power3.out'
-      });
-      gsap.from('.practice-card', {
-        scrollTrigger: {
-          trigger: '.practice-grid',
-          start: 'top 80%',
-          toggleActions: 'play none none none'
-        },
-        y: 80,
-        opacity: 0,
-        duration: 0.2,
-        stagger: 0.1,
-        ease: 'power3.out'
-      });
-    }, sectionRef);
-    return () => ctx.revert();
-  }, []);
+  // useEffect(() => {
+  //   const ctx = gsap.context(() => {
+  //     gsap.from('.practice-header > *', {
+  //       scrollTrigger: {
+  //         trigger: '.practice-header',
+  //         start: 'top 80%',
+  //         toggleActions: 'play none none none'
+  //       },
+  //       y: 50,
+  //       opacity: 0,
+  //       duration: 0.8,
+  //       stagger: 0.15,
+  //       ease: 'power3.out'
+  //     });
+  //     gsap.from('.practice-card', {
+  //       scrollTrigger: {
+  //         trigger: '.practice-grid',
+  //         start: 'top 80%',
+  //         toggleActions: 'play none none none'
+  //       },
+  //       y: 80,
+  //       opacity: 0,
+  //       duration: 0.2,
+  //       stagger: 0.1,
+  //       ease: 'power3.out'
+  //     });
+  //   }, sectionRef);
+  //   return () => ctx.revert();
+  // }, []);
   return <section id="practice-areas" ref={sectionRef} className="py-20 lg:py-32 bg-muted/30">
       <div className="container mx-auto px-4 lg:px-8">
         {/* Header */}
