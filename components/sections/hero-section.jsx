@@ -73,9 +73,9 @@ export function HeroSection() {
   }, []);
   return <section ref={heroRef} className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Background Image */}
-      <div className="absolute inset-0 pointer-events-none">
+      <div className="absolute  inset-0 pointer-events-none">
         <div className="absolute inset-0 bg-cover bg-center bg-no-repeat" style={{
-        backgroundImage: "url('/banner2.jpeg')",
+        backgroundImage: "url('/banner.png')",
       }} />
          <div className="hero-overlay absolute inset-0 bg-linear-to-r from-primary/75 via-primary/20 to-primary/20" /> 
         <div className="absolute inset-0 bg-linear-to-t from-primary via-transparent to-transparent opacity-60" /> 

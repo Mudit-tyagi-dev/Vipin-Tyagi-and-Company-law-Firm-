@@ -48,7 +48,7 @@ export function TestimonialsSection() {
 
   const prevTestimonial = () => {
     setCurrentIndex(
-      (prev) => (prev - 1 + testimonials.length) % testimonials.length
+      (prev) => (prev - 1 + testimonials.length) % testimonials.length,
     );
   };
 
@@ -89,21 +89,23 @@ export function TestimonialsSection() {
         <div className="testimonials-container max-w-4xl mx-auto">
           <div className="testimonial-card relative bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-8 md:p-12 shadow-2xl">
             {/* Quote Icon */}
-            <div className="absolute top-8 right-8 opacity-5">
+            <div className="absolute top-8 right-8 opacity-2">
               <Quote className="w-24 h-24 text-accent" />
             </div>
 
             {/* Stars */}
             <div className="flex gap-1 mb-6">
               {[...Array(5)].map((_, i) => (
-                <Star
+                <span
                   key={i}
-                  className={`w-6 h-6 ${
+                  className={`text-2xl ${
                     i < testimonials[currentIndex].rating
-                      ? "text-accent fill-accent"
-                      : "text-white/20"
+                      ? "text-yellow-400"
+                      : "text-gray-500"
                   }`}
-                />
+                >
+                  ★
+                </span>
               ))}
             </div>
 
@@ -184,9 +186,7 @@ export function TestimonialsSection() {
             <p className="text-accent font-semibold text-lg">
               ⭐ 4.7/5 Google Rating
             </p>
-            <p className="text-white/60 text-sm">
-              Based on Client Reviews
-            </p>
+            <p className="text-white/60 text-sm">Based on Client Reviews</p>
           </div>
         </div>
       </div>

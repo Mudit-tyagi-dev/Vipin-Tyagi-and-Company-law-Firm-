@@ -1,49 +1,87 @@
-import { useEffect, useRef, useState } from 'react'
-import { X, ChevronLeft, ChevronRight } from 'lucide-react'
+import { useEffect, useRef, useState } from "react";
+import { X, ChevronLeft, ChevronRight } from "lucide-react";
 
 const galleryImages = [
-  { id: 1, src: '/download.png' },
-  { id: 2, src: '/images/gallery/WhatsApp Image 2026-06-19 at 1.00.48 AM.jpeg' },
-  { id: 3, src: '/images/gallery/WhatsApp Image 2026-06-19 at 1.00.49 AM (2).jpeg' },
-  { id: 4, src: '/images/gallery/WhatsApp Image 2026-06-19 at 12.52.05 AM.jpeg' },
-  { id: 5, src: '/images/gallery/WhatsApp Image 2026-06-19 at 12.52.07 AM (1).jpeg' },
-  { id: 6, src: '/images/gallery/WhatsApp Image 2026-06-19 at 12.54.53 AM.jpeg' },
-  { id: 7, src: '/images/gallery/WhatsApp Image 2026-06-19 at 12.52.08 AM.jpeg' },
-  { id: 8, src: '/images/gallery/WhatsApp Image 2026-06-19 at 12.52.08 AM (1).jpeg' },
-  { id: 9, src: '/images/gallery/1.4.jpeg' },
-  { id: 10, src: '/images/gallery/1.13.jpeg' },
-  { id: 11, src: '/images/gallery/1-27.jpeg' },
-  { id: 12, src: '/images/gallery/i2.jpg' },
-]
+  { id: 1, src: "/download.png" },
+  {
+    id: 2,
+    src: "/images/gallery/WhatsApp Image 2026-06-19 at 1.00.48 AM.jpeg",
+  },
+  {
+    id: 3,
+    src: "/images/gallery/WhatsApp Image 2026-06-03 at 1.23.52 AM.jpeg",
+  },
 
-const PREVIEW_COUNT = 6 // pehle kitni images dikhni hain
+  {
+    id: 4,
+    src: "/images/gallery/WhatsApp Image 2026-06-19 at 12.52.05 AM.jpeg",
+  },
+  {
+    id: 5,
+    src: "/images/gallery/WhatsApp Image 2026-06-19 at 12.52.07 AM (1).jpeg",
+  },
+  {
+    id: 6,
+    src: "/images/gallery/WhatsApp Image 2026-06-19 at 12.54.53 AM.jpeg",
+  },
+  {
+    id: 7,
+    src: "/images/gallery/WhatsApp Image 2026-06-19 at 12.52.08 AM.jpeg",
+  },
+  {
+    id: 8,
+    src: "/images/gallery/WhatsApp Image 2026-06-19 at 12.52.08 AM (1).jpeg",
+  },
+  { id: 9, src: "/images/gallery/1.4.jpeg" },
+  { id: 10, src: "/images/gallery/1.13.jpeg" },
+  { id: 11, src: "/images/gallery/1-27.jpeg" },
+  { id: 12, src: "/images/gallery/i2.jpg" },
+  {
+    id: 13,
+    src: "/images/gallery/WhatsApp Image 2026-06-19 at 1.00.49 AM (2).jpeg",
+  },
+
+  {
+    id: 14,
+    src: "/images/gallery/WhatsApp Image 2026-06-03 at 1.23.53 AM (1).jpeg",
+  },
+  {
+    id: 15,
+    src: "/images/gallery/WhatsApp Image 2026-06-03 at 1.23.53 AM.jpeg",
+  },
+];
+
+const PREVIEW_COUNT = 6; // pehle kitni images dikhni hain
 
 export function InsightsSection() {
-  const sectionRef = useRef(null)
-  const [lightbox, setLightbox] = useState(null)
-  const [modalOpen, setModalOpen] = useState(false)
+  const sectionRef = useRef(null);
+  const [lightbox, setLightbox] = useState(null);
+  const [modalOpen, setModalOpen] = useState(false);
 
-  const prev = () => setLightbox(i => (i - 1 + galleryImages.length) % galleryImages.length)
-  const next = () => setLightbox(i => (i + 1) % galleryImages.length)
+  const prev = () =>
+    setLightbox((i) => (i - 1 + galleryImages.length) % galleryImages.length);
+  const next = () => setLightbox((i) => (i + 1) % galleryImages.length);
 
   // Body scroll lock jab modal/lightbox open ho
   useEffect(() => {
-    const locked = lightbox !== null || modalOpen
-    document.body.style.overflow = locked ? 'hidden' : ''
-    return () => { document.body.style.overflow = '' }
-  }, [lightbox, modalOpen])
+    const locked = lightbox !== null || modalOpen;
+    document.body.style.overflow = locked ? "hidden" : "";
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [lightbox, modalOpen]);
 
   // Keyboard
   useEffect(() => {
     const handler = (e) => {
-      if (lightbox === null) return
-      if (e.key === 'ArrowLeft') prev()
-      if (e.key === 'ArrowRight') next()
-      if (e.key === 'Escape') setLightbox(null)
-    }
-    window.addEventListener('keydown', handler)
-    return () => window.removeEventListener('keydown', handler)
-  }, [lightbox])
+      if (lightbox === null) return;
+      if (e.key === "ArrowLeft") prev();
+      if (e.key === "ArrowRight") next();
+      if (e.key === "Escape") setLightbox(null);
+    };
+    window.addEventListener("keydown", handler);
+    return () => window.removeEventListener("keydown", handler);
+  }, [lightbox]);
 
   // Scroll animation
   useEffect(() => {
@@ -51,30 +89,37 @@ export function InsightsSection() {
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            entry.target.querySelectorAll('.g-item').forEach((el, i) => {
+            entry.target.querySelectorAll(".g-item").forEach((el, i) => {
               setTimeout(() => {
-                el.style.opacity = '1'
-                el.style.transform = 'translateY(0)'
-              }, i * 100)
-            })
-            observer.unobserve(entry.target)
+                el.style.opacity = "1";
+                el.style.transform = "translateY(0)";
+              }, i * 100);
+            });
+            observer.unobserve(entry.target);
           }
-        })
+        });
       },
-      { threshold: 0.1 }
-    )
-    if (sectionRef.current) observer.observe(sectionRef.current)
-    return () => observer.disconnect()
-  }, [])
+      { threshold: 0.1 },
+    );
+    if (sectionRef.current) observer.observe(sectionRef.current);
+    return () => observer.disconnect();
+  }, []);
 
   return (
     <section id="gallery" ref={sectionRef} className="py-20 lg:py-32 bg-white">
       <div className="container mx-auto px-4 lg:px-8">
-
         {/* Header */}
-        <div className="g-item text-center max-w-2xl mx-auto mb-14"
-          style={{ opacity: 0, transform: 'translateY(30px)', transition: 'all 0.7s ease' }}>
-          <span className="text-accent font-medium tracking-wider uppercase text-sm">Our Firm</span>
+        <div
+          className="g-item text-center max-w-2xl mx-auto mb-14"
+          style={{
+            opacity: 0,
+            transform: "translateY(30px)",
+            transition: "all 0.7s ease",
+          }}
+        >
+          <span className="text-accent font-medium tracking-wider uppercase text-sm">
+            Our Firm
+          </span>
           <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl font-semibold text-primary mt-3 mb-4">
             Gallery
           </h2>
@@ -91,7 +136,7 @@ export function InsightsSection() {
               className="g-item relative overflow-hidden rounded-xl cursor-pointer group aspect-4/3"
               style={{
                 opacity: 0,
-                transform: 'translateY(30px)',
+                transform: "translateY(30px)",
                 transition: `all 0.6s ease ${index * 0.1}s`,
               }}
               onClick={() => setLightbox(index)}
@@ -108,8 +153,14 @@ export function InsightsSection() {
 
         {/* View More Button */}
         {galleryImages.length > PREVIEW_COUNT && (
-          <div className="g-item text-center mt-10"
-            style={{ opacity: 0, transform: 'translateY(20px)', transition: 'all 0.7s ease 0.5s' }}>
+          <div
+            className="g-item text-center mt-10"
+            style={{
+              opacity: 0,
+              transform: "translateY(20px)",
+              transition: "all 0.7s ease 0.5s",
+            }}
+          >
             <button
               onClick={() => setModalOpen(true)}
               className="inline-flex items-center gap-2 px-8 py-3 bg-primary text-primary-foreground rounded-lg font-medium hover:bg-primary/90 transition-all duration-300 shadow-premium hover:shadow-premium-lg hover:-translate-y-0.5"
@@ -126,12 +177,15 @@ export function InsightsSection() {
       {/* ── Full Gallery Modal ── */}
       {modalOpen && (
         <div className="fixed inset-0 z-40 bg-primary/95 backdrop-blur-sm flex flex-col">
-
           {/* Modal Header */}
           <div className="flex items-center justify-between px-4 md:px-8 py-4 border-b border-white/10 shrink-0">
             <div>
-              <span className="text-accent text-xs font-semibold tracking-widest uppercase">Our Firm</span>
-              <h3 className="text-white font-serif text-xl font-semibold">Gallery</h3>
+              <span className="text-accent text-xs font-semibold tracking-widest uppercase">
+                Our Firm
+              </span>
+              <h3 className="text-white font-serif text-xl font-semibold">
+                Gallery
+              </h3>
             </div>
             <button
               onClick={() => setModalOpen(false)}
@@ -148,7 +202,10 @@ export function InsightsSection() {
                 <div
                   key={img.id}
                   className="relative overflow-hidden rounded-xl cursor-pointer group aspect-4/3"
-                  onClick={() => { setModalOpen(false); setLightbox(index) }}
+                  onClick={() => {
+                    setModalOpen(false);
+                    setLightbox(index);
+                  }}
                 >
                   <img
                     src={img.src}
@@ -185,7 +242,10 @@ export function InsightsSection() {
           {/* Prev */}
           <button
             className="absolute left-2 md:left-6 w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white transition-colors z-10"
-            onClick={(e) => { e.stopPropagation(); prev() }}
+            onClick={(e) => {
+              e.stopPropagation();
+              prev();
+            }}
           >
             <ChevronLeft className="w-6 h-6" />
           </button>
@@ -193,7 +253,7 @@ export function InsightsSection() {
           {/* Image */}
           <div
             className="w-full h-full flex items-center justify-center p-12 md:p-16"
-            onClick={e => e.stopPropagation()}
+            onClick={(e) => e.stopPropagation()}
           >
             <img
               src={galleryImages[lightbox].src}
@@ -205,16 +265,18 @@ export function InsightsSection() {
           {/* Next */}
           <button
             className="absolute right-2 md:right-6 w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white transition-colors z-10"
-            onClick={(e) => { e.stopPropagation(); next() }}
+            onClick={(e) => {
+              e.stopPropagation();
+              next();
+            }}
           >
             <ChevronRight className="w-6 h-6" />
           </button>
         </div>
       )}
     </section>
-  )
+  );
 }
-
 
 // import { useEffect, useRef } from 'react';
 // import { Link } from 'react-router-dom';
@@ -263,7 +325,7 @@ export function InsightsSection() {
 //               Latest From Our Experts
 //             </h2>
 //             <p className="text-muted-foreground leading-relaxed">
-//               Stay informed with expert analysis on legal developments, regulatory updates, 
+//               Stay informed with expert analysis on legal developments, regulatory updates,
 //               and practical guidance from our attorneys.
 //             </p>
 //           </div>
