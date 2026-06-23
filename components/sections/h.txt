@@ -1,0 +1,1 @@
+grayscale group-hover:grayscale-0 transition-all duration-500

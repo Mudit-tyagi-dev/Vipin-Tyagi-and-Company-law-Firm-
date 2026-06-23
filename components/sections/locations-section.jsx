@@ -158,13 +158,13 @@ export function LocationsSection() {
             }}
           >
             <div
-              className="relative h-[500px]
-  sm:h-[400px]
-  md:h-[500px]
-  lg:h-[650px]
-  xl:h-[750px]
+              className="relative h-125
+  sm:h-100
+  md:h-125
+  lg:h-162.5
+  xl:h-187.5
   w-full
-  max-w-[850px]
+  max-w-212.5
   mx-auto"
             >
               <svg

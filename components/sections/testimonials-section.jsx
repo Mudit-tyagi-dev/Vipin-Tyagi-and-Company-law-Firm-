@@ -114,7 +114,7 @@ export function TestimonialsSection() {
 
             {/* Author */}
             <div className="flex items-center gap-4">
-              <div className="w-14 h-14 rounded-full bg-gradient-to-br from-accent/30 to-accent/10 border border-accent/40 flex items-center justify-center shadow-lg shadow-accent/20">
+              <div className="w-14 h-14 rounded-full bg-linear-to-br from-accent/30 to-accent/10 border border-accent/40 flex items-center justify-center shadow-lg shadow-accent/20">
                 <span className="text-accent font-bold text-lg">
                   {testimonials[currentIndex].name
                     .split(" ")

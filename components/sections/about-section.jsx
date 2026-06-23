@@ -91,10 +91,31 @@ export function AboutSection() {
             <div className="absolute -bottom-6 -right-6 w-48 h-48 bg-accent/10 rounded-lg -z-10" />
             <div className="absolute -top-6 -left-6 w-32 h-32 border-2 border-accent rounded-lg -z-10" />
             {/* Experience Badge */}
-            <div className="absolute bottom-8 left-8 bg-primary text-primary-foreground px-6 py-4 rounded-lg shadow-xl">
-              <p className="text-3xl font-serif font-bold text-accent">22+</p>
-              <p className="text-sm">Years of Excellence</p>
-            </div>
+            <div
+  className="
+  absolute
+  bottom-4
+  left-4
+  md:bottom-8
+  md:left-8
+  bg-primary
+  text-primary-foreground
+  px-4
+  py-3
+  md:px-6
+  md:py-4
+  rounded-xl
+  shadow-xl
+  backdrop-blur-sm
+  "
+>
+  <p className="text-2xl md:text-3xl font-serif font-bold text-accent">
+    22+
+  </p>
+  <p className="text-xs md:text-sm">
+    Years of Excellence
+  </p>
+</div>
           </div>
 
           {/* Content */}

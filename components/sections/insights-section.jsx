@@ -88,7 +88,7 @@ export function InsightsSection() {
           {galleryImages.slice(0, PREVIEW_COUNT).map((img, index) => (
             <div
               key={img.id}
-              className="g-item relative overflow-hidden rounded-xl cursor-pointer group aspect-[4/3]"
+              className="g-item relative overflow-hidden rounded-xl cursor-pointer group aspect-4/3"
               style={{
                 opacity: 0,
                 transform: 'translateY(30px)',
@@ -147,7 +147,7 @@ export function InsightsSection() {
               {galleryImages.map((img, index) => (
                 <div
                   key={img.id}
-                  className="relative overflow-hidden rounded-xl cursor-pointer group aspect-[4/3]"
+                  className="relative overflow-hidden rounded-xl cursor-pointer group aspect-4/3"
                   onClick={() => { setModalOpen(false); setLightbox(index) }}
                 >
                   <img

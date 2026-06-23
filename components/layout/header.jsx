@@ -123,8 +123,8 @@ flex
 items-center
 justify-center
 shrink-0
-max-w-[120px]
-md:max-w-[160px]
+max-w-30
+md:max-w-40
 lg:max-w-none
 "
           >
@@ -132,12 +132,12 @@ lg:max-w-none
               src="/logo.png"
               alt="Vipin Tyagi Law Firm"
               className="
-h-[72px]
-sm:h-[82px]
-md:h-[90px]
-lg:h-[72px]
-xl:h-[100px]
-2xl:h-[115px]
+h-18
+sm:h-21
+md:h-23
+lg:h-18
+xl:h-25
+2xl:h-29
 w-auto
 object-contain
 "
@@ -177,7 +177,7 @@ object-contain
 
                   {activeDropdown === "locations" && (
                     <div className="absolute top-full left-1/2 -translate-x-1/2 pt-4">
-                      <div className="bg-white rounded-xl shadow-premium-lg p-6 min-w-[560px] border border-border">
+                      <div className="bg-white rounded-xl shadow-premium-lg p-6 min-w-140 border border-border">
                         <div className="flex items-center gap-2 mb-4 pb-3 border-b border-border">
                           <MapPin className="w-5 h-5 text-accent" />
                           <span className="font-serif font-semibold text-foreground">
@@ -276,7 +276,7 @@ object-contain
       {/* Mobile Menu */}
       <div
         className={cn(
-          "lg:hidden fixed inset-x-0 top-[72px] bottom-0 bg-primary overflow-y-auto transition-all duration-300",
+          "lg:hidden fixed inset-x-0 top-18 bottom-0 bg-primary overflow-y-auto transition-all duration-300",
           isMobileMenuOpen
             ? "opacity-100 visible"
             : "opacity-0 invisible pointer-events-none",

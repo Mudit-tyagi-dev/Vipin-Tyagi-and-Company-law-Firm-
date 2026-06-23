@@ -3,23 +3,18 @@ import { useEffect, useState } from "react";
 export function DisclaimerModal() {
   const [show, setShow] = useState(false);
 
-  useEffect(() => {
-    const accepted = localStorage.getItem("disclaimerAccepted");
+useEffect(() => {
+  setShow(true)
+}, [])
 
-    if (!accepted) {
-      setShow(true);
-    }
-  }, []);
-
-  const handleAgree = () => {
-    localStorage.setItem("disclaimerAccepted", "true");
-    setShow(false);
-  };
+const handleAgree = () => {
+  setShow(false)
+}
 
   if (!show) return null;
 
   return (
-    <div className="fixed inset-0 z-[9999] bg-black/70 backdrop-blur-sm flex items-center justify-center px-4">
+    <div className="fixed inset-0 z-9999 bg-black/70 backdrop-blur-sm flex items-center justify-center px-4">
 
       {/* Box */}
       <div className="bg-white max-w-4xl w-full rounded-sm shadow-2xl p-8 md:p-12 animate-in fade-in zoom-in duration-300">
