@@ -30,35 +30,35 @@ const features = [{
 }];
 export function WhyChooseUsSection() {
   const sectionRef = useRef(null);
-  useEffect(() => {
-    const ctx = gsap.context(() => {
-      gsap.from('.why-header > *', {
-        scrollTrigger: {
-          trigger: '.why-header',
-          start: 'top 80%',
-          toggleActions: 'play none none none'
-        },
-        y: 50,
-        opacity: 0,
-        duration: 0.8,
-        stagger: 0.15,
-        ease: 'power3.out'
-      });
-      gsap.from('.feature-item', {
-        scrollTrigger: {
-          trigger: '.features-grid',
-          start: 'top 80%',
-          toggleActions: 'play none none none'
-        },
-        y: 60,
-        opacity: 0,
-        duration: 0.8,
-        stagger: 0.1,
-        ease: 'power3.out'
-      });
-    }, sectionRef);
-    return () => ctx.revert();
-  }, []);
+  // useEffect(() => {
+  //   const ctx = gsap.context(() => {
+  //     gsap.from('.why-header > *', {
+  //       scrollTrigger: {
+  //         trigger: '.why-header',
+  //         start: 'top 80%',
+  //         toggleActions: 'play none none none'
+  //       },
+  //       y: 50,
+  //       opacity: 0,
+  //       duration: 0.8,
+  //       stagger: 0.15,
+  //       ease: 'power3.out'
+  //     });
+  //     gsap.from('.feature-item', {
+  //       scrollTrigger: {
+  //         trigger: '.features-grid',
+  //         start: 'top 80%',
+  //         toggleActions: 'play none none none'
+  //       },
+  //       y: 60,
+  //       opacity: 0,
+  //       duration: 0.8,
+  //       stagger: 0.1,
+  //       ease: 'power3.out'
+  //     });
+  //   }, sectionRef);
+  //   return () => ctx.revert();
+  // }, []);
   return <section ref={sectionRef} className="py-20 lg:py-32 bg-primary text-primary-foreground relative overflow-hidden">
       {/* Decorative Elements */}
       <div className="absolute top-0 left-0 w-full h-full">

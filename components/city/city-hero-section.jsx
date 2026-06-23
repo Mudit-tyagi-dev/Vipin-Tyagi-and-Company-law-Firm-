@@ -26,7 +26,7 @@ export function CityHeroSection({
   }, []);
   return <section ref={heroRef} className="relative min-h-[70vh] flex items-center justify-center overflow-hidden">
       {/* Background */}
-      <div className="absolute inset-0">
+      <div className="absolute inset-0 pointer-events-none">
         <div className="absolute inset-0 bg-cover bg-center bg-no-repeat" style={{
         backgroundImage: 'url(https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=2069&auto=format&fit=crop)'
       }} />

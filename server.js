@@ -24,8 +24,8 @@ app.post('/api/contact', async (req, res) => {
 
     if (process.env.RESEND_API_KEY) {
       await resend.emails.send({
-        from: 'Apex Legal Partners <contact@apexlegal.in>',
-        to: data.officeEmail || 'contact@apexlegal.in',
+        from: 'Apex Legal Partners vipintyagiandcompany@gmail.com>',
+        to: data.officeEmail || 'vipintyagiandcompany@gmail.com',
         replyTo: data.email,
         subject: `New Consultation Request - ${data.name}`,
         text: firmEmailContent,

@@ -52,8 +52,8 @@ export function TeamSection() {
         <div className="team-grid grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
           {teamMembers.map(member => <div key={member.name} className="team-card group relative">
               {/* Image Container */}
-              <div className="relative aspect-3/4rounded-lg overflow-hidden mb-5">
-                <img src={member.image} alt={member.name} fill className="object-cover grayscale group-hover:grayscale-0 transition-all duration-500" />
+              <div className="relative aspect-auto] overflow-hidden rounded-xl mb-5">
+                <img src={member.image} alt={member.name} fill className="w-full h-90 object-cover grayscale group-hover:grayscale-0 transition-all duration-500" />
                 {/* Overlay */}
                 <div className="absolute inset-0 bg-linear-to-t from-primary/80 via-primary/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 

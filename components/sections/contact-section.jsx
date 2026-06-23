@@ -213,26 +213,26 @@ export function ContactSection() {
                 <div className="flex gap-4">
                   <MapPin className="w-5 h-5 text-accent shrink-0 mt-1" />
                   <div>
-                    <p className="font-medium">14th Floor, Connaught Place</p>
-                    <p className="text-primary-foreground/70">New Delhi - 110001</p>
+                    <p className="font-medium">Chamber No. 304 , District Court </p>
+                    <p className="text-primary-foreground/70">Ghaziabad-201002, UP</p>
                   </div>
                 </div>
                 <div className="flex gap-4">
                   <Phone className="w-5 h-5 text-accent shrink-0" />
                   <a href="tel:+911145678900" className="hover:text-accent transition-colors">
-                    +91 11 4567 8900
+                    +91 9350105180
                   </a>
                 </div>
                 <div className="flex gap-4">
                   <Mail className="w-5 h-5 text-accent shrink-0" />
-                  <a href="mailto:contact@apexlegal.in" className="hover:text-accent transition-colors">
-                    contact@apexlegal.in
+                  <a href="#" className="hover:text-accent transition-colors">
+                    vipintyagiandcompany@gmail.com
                   </a>
                 </div>
                 <div className="flex gap-4">
                   <Clock className="w-5 h-5 text-accent shrink-0" />
                   <div>
-                    <p>Mon - Sat: 9:00 AM - 7:00 PM</p>
+                    <p>Mon - Sat: 10:00 AM - 5:00 PM</p>
                     <p className="text-primary-foreground/70">Sunday: By Appointment</p>
                   </div>
                 </div>
@@ -240,7 +240,7 @@ export function ContactSection() {
             </div>
 
             {/* Quick Contact */}
-            <div className="bg-muted rounded-xl p-8">
+            {/* <div className="bg-muted rounded-xl p-8">
               <h3 className="font-serif font-semibold text-xl text-foreground mb-4">
                 Urgent Legal Matter?
               </h3>
@@ -249,9 +249,9 @@ export function ContactSection() {
               </p>
               <a href="tel:+911145678999" className="inline-flex items-center gap-2 bg-accent text-accent-foreground px-6 py-3 rounded-lg font-medium hover:bg-accent/90 transition-colors">
                 <Phone className="w-5 h-5" />
-                Emergency: +91 11 4567 8999
+                Emergency: +91 9350105180
               </a>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>

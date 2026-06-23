@@ -31,46 +31,46 @@ const values = [
 ];
 export function AboutSection() {
   const sectionRef = useRef(null);
-  useEffect(() => {
-    const ctx = gsap.context(() => {
-      gsap.from(".about-image", {
-        scrollTrigger: {
-          trigger: ".about-image",
-          start: "top 80%",
-          toggleActions: "play none none none",
-        },
-        x: -100,
-        opacity: 0,
-        duration: 1,
-        ease: "power3.out",
-      });
-      gsap.from(".about-content > *", {
-        scrollTrigger: {
-          trigger: ".about-content",
-          start: "top 80%",
-          toggleActions: "play none none none",
-        },
-        y: 50,
-        opacity: 0,
-        duration: 0.8,
-        stagger: 0.15,
-        ease: "power3.out",
-      });
-      gsap.from(".value-card", {
-        scrollTrigger: {
-          trigger: ".values-grid",
-          start: "top 80%",
-          toggleActions: "play none none none",
-        },
-        y: 60,
-        opacity: 0,
-        duration: 0.8,
-        stagger: 0.1,
-        ease: "power3.out",
-      });
-    }, sectionRef);
-    return () => ctx.revert();
-  }, []);
+  // useEffect(() => {
+  //   const ctx = gsap.context(() => {
+  //     gsap.from(".about-image", {
+  //       scrollTrigger: {
+  //         trigger: ".about-image",
+  //         start: "top 80%",
+  //         toggleActions: "play none none none",
+  //       },
+  //       x: -100,
+  //       opacity: 0,
+  //       duration: 1,
+  //       ease: "power3.out",
+  //     });
+  //     gsap.from(".about-content > *", {
+  //       scrollTrigger: {
+  //         trigger: ".about-content",
+  //         start: "top 80%",
+  //         toggleActions: "play none none none",
+  //       },
+  //       y: 50,
+  //       opacity: 0,
+  //       duration: 0.8,
+  //       stagger: 0.15,
+  //       ease: "power3.out",
+  //     });
+  //     gsap.from(".value-card", {
+  //       scrollTrigger: {
+  //         trigger: ".values-grid",
+  //         start: "top 80%",
+  //         toggleActions: "play none none none",
+  //       },
+  //       y: 60,
+  //       opacity: 0,
+  //       duration: 0.8,
+  //       stagger: 0.1,
+  //       ease: "power3.out",
+  //     });
+  //   }, sectionRef);
+  //   return () => ctx.revert();
+  // }, []);
   return (
     <section
       id="about"

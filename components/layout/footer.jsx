@@ -26,7 +26,7 @@ const socialLinks = [{
   icon: Twitter,
   label: 'Twitter'
 }, {
-  href: 'https://facebook.com',
+  href: 'https://www.facebook.com/vipintyagiandcompany/',
   icon: Facebook,
   label: 'Facebook'
 }, {
@@ -49,11 +49,11 @@ export function Footer() {
           <div className="sm:col-span-2 lg:col-span-1">
             <Link href="/" className="flex items-center gap-3 mb-6 group">
               <div className="relative w-12 h-12 rounded overflow-hidden bg-accent/10">
-                <img src="/images/logo.png" alt="Vipin Tyagi Law Firm" width={48} height={48} className="object-contain" />
+                <img src="/download.png" alt="Vipin Tyagi Law Firm" width={48} height={48} className="object-contain" />
               </div>
               <div>
                 <h3 className="font-serif font-bold text-lg group-hover:text-accent transition-colors">
-                  VIPIN TYAGI
+                  VIPIN TYAGI & Company
                 </h3>
                 <p className="text-xs text-primary-foreground/70 tracking-[0.2em] uppercase">
                   LAW FIRM
@@ -138,7 +138,7 @@ export function Footer() {
               </div>
               <div>
                 <p className="text-xs text-primary-foreground/60 uppercase tracking-wider mb-1">Call Us</p>
-                <p className="font-semibold">+91 11 4567 8900</p>
+                <p className="font-semibold">+91 9350105180</p>
               </div>
             </a>
             <a href="mailto:contact@vipintyagilawfirm.in" className="flex items-center gap-4 text-primary-foreground/80 hover:text-accent transition-colors group p-4 rounded-xl hover:bg-white/5">
@@ -147,7 +147,7 @@ export function Footer() {
               </div>
               <div>
                 <p className="text-xs text-primary-foreground/60 uppercase tracking-wider mb-1">Email Us</p>
-                <p className="font-semibold text-sm sm:text-base">contact@vipintyagilawfirm.in</p>
+                <p className="font-semibold text-sm sm:text-base">vipintyagiandcompany@gmail.com</p>
               </div>
             </a>
             <div className="flex items-center gap-4 text-primary-foreground/80 p-4 rounded-xl sm:col-span-2 lg:col-span-1">
@@ -156,7 +156,7 @@ export function Footer() {
               </div>
               <div>
                 <p className="text-xs text-primary-foreground/60 uppercase tracking-wider mb-1">Head Office</p>
-                <p className="font-semibold">Connaught Place, New Delhi</p>
+                <p className="font-semibold">Chamber No. 304 , District Court, Ghaziabad-201002, UP</p>
               </div>
             </div>
           </div>

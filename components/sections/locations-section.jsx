@@ -147,7 +147,7 @@ export function LocationsSection() {
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
           {/* India Map */}
           <div
             className="loc-animate relative"
@@ -157,7 +157,16 @@ export function LocationsSection() {
               transition: "all 0.9s ease 0.2s",
             }}
           >
-            <div className="relative aspect-[4/5] max-w-xl lg:max-w-2xl mx-auto">
+            <div
+              className="relative h-[500px]
+  sm:h-[400px]
+  md:h-[500px]
+  lg:h-[650px]
+  xl:h-[750px]
+  w-full
+  max-w-[850px]
+  mx-auto"
+            >
               <svg
                 xmlns:mapsvg="http://mapsvg.com"
                 xmlns:dc="http://purl.org/dc/elements/1.1/"
@@ -167,9 +176,8 @@ export function LocationsSection() {
                 xmlns="http://www.w3.org/2000/svg"
                 version="1.1"
                 id="svg2"
-                height="695.70178"
-                width="611.85999"
-                mapsvg:geoViewBox="68.184010 37.084109 97.418146 6.753659"
+                viewBox="0 0 612 696"
+                preserveAspectRatio="xMidYMid meet"
                 className="w-full h-full"
                 style={{
                   filter: "drop-shadow(0 0 20px rgba(212,175,55,0.15))",
@@ -233,7 +241,7 @@ export function LocationsSection() {
                 {/* Lucknow */}
                 <circle cx="305" cy="220" r="5" fill="#D4AF37" />
                 <circle cx="265" cy="185" r="10" fill="#D4AF37" opacity="0.2" />
-<circle cx="265" cy="185" r="5" fill="#D4AF37" />
+                <circle cx="265" cy="185" r="5" fill="#D4AF37" />
                 <path
                   id="IN-AN"
                   title="Andaman and Nicobar Islands"
@@ -445,7 +453,7 @@ export function LocationsSection() {
                 <p className="text-primary-foreground/70">
                   {activeCityData
                     ? activeCityData.state
-                    : "Hover over the map to explore our locations"}
+                    : "Explore our offices across India"}
                 </p>
               </div>
 
