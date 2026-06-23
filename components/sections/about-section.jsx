@@ -81,7 +81,7 @@ export function AboutSection() {
         {/* Main About */}
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center mb-20">
           {/* Image */}
-          <div className="about-image relative">
+          <div className="about-image relative mb-12 md:mb-0">
             <img
               src="/images/3dimg.jpg"
               alt="Vipin Tyagi & Company Law Firm"
@@ -94,7 +94,7 @@ export function AboutSection() {
             <div
   className="
   absolute
-  bottom-4
+  -bottom-6
   left-4
   md:bottom-8
   md:left-8
@@ -104,9 +104,9 @@ export function AboutSection() {
   py-3
   md:px-6
   md:py-4
-  rounded-xl
+  rounded-2xl
   shadow-xl
-  backdrop-blur-sm
+  z-10
   "
 >
   <p className="text-2xl md:text-3xl font-serif font-bold text-accent">
