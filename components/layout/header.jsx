@@ -11,7 +11,7 @@ const navLinks = [
   { label: "Practice Areas", section: "practice-areas" },
   { label: "Locations", section: "locations", hasDropdown: true },
   { label: "Team", section: "team" },
-  { label: "Testimonials", section: "testimonials" },
+  { label: "TestimonialsSection", section: "testimonials" },
   { label: "Gallery", section: "gallery" },
   { label: "Contact", section: "contact" },
 ];

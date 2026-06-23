@@ -1,24 +1,31 @@
-import { HeroSection } from '@/components/sections/hero-section';
-import { AboutSection } from '@/components/sections/about-section';
-import { LocationsSection } from '@/components/sections/locations-section';
-import { PracticeAreasSection } from '@/components/sections/practice-areas-section';
-import { WhyChooseUsSection } from '@/components/sections/why-choose-us-section';
-import { TeamSection } from '@/components/sections/team-section';
-import { SuccessStoriesSection } from '@/components/sections/success-stories-section';
-import { TestimonialsSection } from '@/components/sections/testimonials-section';
-import { InsightsSection } from '@/components/sections/insights-section';
-import { ContactSection } from '@/components/sections/contact-section';
+import { lazy, Suspense } from 'react'
+import { HeroSection } from '@/components/sections/hero-section'
+import { AboutSection } from '@/components/sections/about-section'
+
+const LocationsSection      = lazy(() => import('@/components/sections/locations-section').then(m => ({ default: m.LocationsSection })))
+const PracticeAreasSection  = lazy(() => import('@/components/sections/practice-areas-section').then(m => ({ default: m.PracticeAreasSection })))
+const WhyChooseUsSection    = lazy(() => import('@/components/sections/why-choose-us-section').then(m => ({ default: m.WhyChooseUsSection })))
+const TeamSection           = lazy(() => import('@/components/sections/team-section').then(m => ({ default: m.TeamSection })))
+const SuccessStoriesSection = lazy(() => import('@/components/sections/success-stories-section').then(m => ({ default: m.SuccessStoriesSection })))
+const TestimonialsSection   = lazy(() => import('@/components/sections/testimonials-section').then(m => ({ default: m.TestimonialsSection })))
+const InsightsSection       = lazy(() => import('@/components/sections/insights-section').then(m => ({ default: m.InsightsSection })))
+const ContactSection        = lazy(() => import('@/components/sections/contact-section').then(m => ({ default: m.ContactSection })))
+
 export default function HomePage() {
-  return <>
+  return (
+    <>
       <HeroSection />
       <AboutSection />
-      <LocationsSection />
-      <PracticeAreasSection />
-      <WhyChooseUsSection />
-      <TeamSection />
-      <SuccessStoriesSection />
-      <TestimonialsSection />
-      <InsightsSection />
-      <ContactSection />
-    </>;
+      <Suspense fallback={null}>
+        <LocationsSection />
+        <PracticeAreasSection />
+        <WhyChooseUsSection />
+        <TeamSection />
+        <SuccessStoriesSection />
+        <TestimonialsSection />
+        <InsightsSection />
+        <ContactSection />
+      </Suspense>
+    </>
+  )
 }

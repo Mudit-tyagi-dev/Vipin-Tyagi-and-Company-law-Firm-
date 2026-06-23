@@ -2,18 +2,18 @@ import { useEffect, useRef, useState } from 'react'
 import { X, ChevronLeft, ChevronRight } from 'lucide-react'
 
 const galleryImages = [
-  { id: 1, src: 'public/download.png' },
-  { id: 2, src: 'public/images/gallery/WhatsApp Image 2026-06-19 at 1.00.48 AM.jpeg' },
-  { id: 3, src: 'public/images/gallery/WhatsApp Image 2026-06-19 at 1.00.49 AM (2).jpeg' },
-  { id: 4, src: '/public/images/gallery/WhatsApp Image 2026-06-19 at 12.52.05 AM.jpeg' },
-  { id: 5, src: '/public/images/gallery/WhatsApp Image 2026-06-19 at 12.52.07 AM (1).jpeg' },
+  { id: 1, src: '/download.png' },
+  { id: 2, src: '/images/gallery/WhatsApp Image 2026-06-19 at 1.00.48 AM.jpeg' },
+  { id: 3, src: '/images/gallery/WhatsApp Image 2026-06-19 at 1.00.49 AM (2).jpeg' },
+  { id: 4, src: '/images/gallery/WhatsApp Image 2026-06-19 at 12.52.05 AM.jpeg' },
+  { id: 5, src: '/images/gallery/WhatsApp Image 2026-06-19 at 12.52.07 AM (1).jpeg' },
   { id: 6, src: '/images/gallery/WhatsApp Image 2026-06-19 at 12.54.53 AM.jpeg' },
-  { id: 7, src: 'public/images/gallery/WhatsApp Image 2026-06-19 at 12.52.08 AM.jpeg' },
-  { id: 8, src: '/public/images/gallery/WhatsApp Image 2026-06-19 at 12.52.08 AM (1).jpeg' },
-  { id: 9, src: 'public/images/gallery/1.4.jpeg' },
-  { id: 10, src: 'public/images/gallery/1.13.jpeg' },
-  { id: 11, src: 'public/images/gallery/1-27.jpeg' },
-  { id: 12, src: 'public/images/gallery/i2.jpg' },
+  { id: 7, src: '/images/gallery/WhatsApp Image 2026-06-19 at 12.52.08 AM.jpeg' },
+  { id: 8, src: '/images/gallery/WhatsApp Image 2026-06-19 at 12.52.08 AM (1).jpeg' },
+  { id: 9, src: '/images/gallery/1.4.jpeg' },
+  { id: 10, src: '/images/gallery/1.13.jpeg' },
+  { id: 11, src: '/images/gallery/1-27.jpeg' },
+  { id: 12, src: '/images/gallery/i2.jpg' },
 ]
 
 const PREVIEW_COUNT = 6 // pehle kitni images dikhni hain
