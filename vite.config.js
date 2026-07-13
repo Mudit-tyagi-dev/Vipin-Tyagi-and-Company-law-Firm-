@@ -15,6 +15,14 @@ export default defineConfig({
 
   build: {
     minify: "terser",
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          "react-vendor": ["react", "react-dom", "react-router-dom"],
+          "gsap-vendor": ["gsap"],
+        },
+      },
+    },
   },
 
   server: {

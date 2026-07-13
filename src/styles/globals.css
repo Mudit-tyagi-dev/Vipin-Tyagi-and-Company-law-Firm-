@@ -261,3 +261,15 @@ svg path {
 svg path:hover {
   fill: rgba(212,175,55,0.15);
 }
+
+/* Accessibility Focus States */
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible,
+[role="button"]:focus-visible {
+  outline: 2px solid var(--accent) !important;
+  outline-offset: 2px !important;
+  box-shadow: 0 0 0 4px rgba(212, 175, 55, 0.4) !important;
+}

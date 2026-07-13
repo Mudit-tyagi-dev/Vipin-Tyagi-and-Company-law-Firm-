@@ -85,6 +85,9 @@ export function AboutSection() {
             <img
               src="/images/3dimg.jpg"
               alt="Vipin Tyagi & Company Law Firm"
+              width={600}
+              height={450}
+              loading="lazy"
               className="w-full h-full object-cover"
             />
             {/* Decorative Elements */}

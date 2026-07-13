@@ -107,6 +107,8 @@ export function Header() {
             <img
               src="/logo.png"
               alt="Vipin Tyagi Law Firm"
+              width={180}
+              height={60}
               className="h-18 sm:h-21 md:h-23 lg:h-18 xl:h-25 2xl:h-29 w-auto object-contain"
             />
           </button>
@@ -132,6 +134,9 @@ export function Header() {
                         : "text-white hover:bg-white/15 hover:text-accent",
                       activeDropdown === "locations" && "bg-white/10",
                     )}
+                    aria-haspopup="true"
+                    aria-expanded={activeDropdown === "locations"}
+                    aria-controls="desktop-locations-menu"
                   >
                     {link.label}
                     <ChevronDown
@@ -143,7 +148,7 @@ export function Header() {
                   </button>
 
                   {activeDropdown === "locations" && (
-                    <div className="absolute top-full left-1/2 -translate-x-1/2 pt-4">
+                    <div id="desktop-locations-menu" className="absolute top-full left-1/2 -translate-x-1/2 pt-4">
                       <div className="bg-white rounded-xl shadow-premium-lg p-6 min-w-140 border border-border">
                         <div className="flex items-center gap-2 mb-4 pb-3 border-b border-border">
                           <MapPin className="w-5 h-5 text-accent" />
@@ -233,6 +238,8 @@ export function Header() {
                 isScrolled || isMobileMenuOpen ? "text-black" : "text-white"
               )}
               aria-label="Toggle navigation menu"
+              aria-expanded={isMobileMenuOpen}
+              aria-controls="mobile-navigation-menu"
             >
               {isMobileMenuOpen ? (
                 <X className="w-7 h-7" />
@@ -246,6 +253,7 @@ export function Header() {
 
       {/* Mobile Menu */}
       <div
+        id="mobile-navigation-menu"
         className={cn(
           "lg:hidden fixed inset-x-0 top-18 bottom-0 bg-primary overflow-y-auto transition-all duration-300",
           isMobileMenuOpen

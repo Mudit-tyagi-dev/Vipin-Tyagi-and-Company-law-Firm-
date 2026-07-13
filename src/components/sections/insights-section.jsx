@@ -144,6 +144,9 @@ export function InsightsSection() {
               <img
                 src={img.src}
                 alt={`Gallery ${img.id}`}
+                width={400}
+                height={300}
+                loading="lazy"
                 className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
               />
               <div className="absolute inset-0 bg-primary/0 group-hover:bg-primary/30 transition-all duration-300" />
@@ -210,6 +213,9 @@ export function InsightsSection() {
                   <img
                     src={img.src}
                     alt={`Gallery ${img.id}`}
+                    width={300}
+                    height={225}
+                    loading="lazy"
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                   />
                   <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-300" />
@@ -258,6 +264,9 @@ export function InsightsSection() {
             <img
               src={galleryImages[lightbox].src}
               alt={`Gallery ${galleryImages[lightbox].id}`}
+              width={1200}
+              height={900}
+              loading="lazy"
               className="max-w-full max-h-full object-contain rounded-lg select-none"
             />
           </div>

@@ -199,7 +199,7 @@ export function ContactSection() {
                           })
                         }
                       >
-                        <SelectTrigger>
+                        <SelectTrigger id="city">
                           <SelectValue placeholder="Select a city" />
                         </SelectTrigger>
                         <SelectContent>
@@ -224,7 +224,7 @@ export function ContactSection() {
                         })
                       }
                     >
-                      <SelectTrigger>
+                      <SelectTrigger id="practiceArea">
                         <SelectValue placeholder="Select practice area" />
                       </SelectTrigger>
                       <SelectContent>

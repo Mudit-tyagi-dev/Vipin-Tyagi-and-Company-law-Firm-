@@ -181,6 +181,8 @@ export function LocationsSection() {
                 style={{
                   filter: "drop-shadow(0 0 20px rgba(212,175,55,0.15))",
                 }}
+                role="img"
+                aria-label="Interactive map of India highlighting office locations across major cities"
               >
                 <metadata id="metadata44">
                   <rdf:RDF>

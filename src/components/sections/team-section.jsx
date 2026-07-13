@@ -64,8 +64,10 @@ export function TeamSection() {
                 <img
                   src={member.image}
                   alt={member.name}
-                  fill
-                  className="w-full h-90 object-cover "
+                  width={300}
+                  height={360}
+                  loading="lazy"
+                  className="w-full h-90 object-cover"
                 />
                 {/* Overlay */}
                 <div className="absolute inset-0 bg-linear-to-t from-primary/80 via-primary/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />

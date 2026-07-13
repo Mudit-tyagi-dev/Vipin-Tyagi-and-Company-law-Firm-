@@ -40,7 +40,7 @@ export function Footer() {
           <div className="sm:col-span-2 lg:col-span-1">
             <Link to="/" className="flex items-center gap-3 mb-6 group">
               <div className="relative w-12 h-12 rounded overflow-hidden bg-accent/10">
-                <img src="/download.png" alt="Vipin Tyagi Law Firm" width={48} height={48} className="object-contain" />
+                <img src="/download.png" alt="Vipin Tyagi Law Firm" width={48} height={48} loading="lazy" className="object-contain" />
               </div>
               <div>
                 <h3 className="font-serif font-bold text-lg group-hover:text-accent transition-colors">
