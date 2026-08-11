@@ -25,18 +25,11 @@ const groupedCities = {
 };
 
 export function Header() {
-  const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState(null);
   const dropdownRef = useRef(null);
   const location = useLocation();
   const { scrollTo } = useScroll();
-
-  useEffect(() => {
-    const onScroll = () => setIsScrolled(window.scrollY > 20);
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
 
   useEffect(() => {
     setIsMobileMenuOpen(false);
@@ -66,177 +59,151 @@ export function Header() {
   };
 
   return (
-    <header
-      style={
-        isScrolled
-          ? {
-              position: "fixed",
-              top: "12px",
-              left: "50%",
-              transform: "translateX(-50%)",
-              width: "92%",
-              maxWidth: "1280px",
-              height: "90px",
-              borderRadius: "14px",
-            }
-          : {
-              position: "fixed",
-              top: "0",
-              left: "0",
-              right: "0",
-              width: "100%",
-              height: "100px",
-              transform: "none",
-              borderRadius: "0",
-            }
-      }
-      className={cn(
-        "z-50 transition-all duration-500 ease-out",
-        isScrolled
-          ? "bg-white/95 backdrop-blur-xl shadow-lg py-1 px-6"
-          : "bg-linear-to-b from-black/50 to-transparent py-3 px-0",
-      )}
-    >
-      <div className="container-premium">
-        <div className="flex items-center justify-between w-full">
-          {/* Logo */}
-          <button
-            onClick={() => handleNavClick(null)}
-            className="flex items-center justify-center shrink-0 max-w-30 md:max-w-40 lg:max-w-none cursor-pointer"
-          >
-            <img
-              src="/logo.png"
-              alt="Vipin Tyagi Law Firm"
-              width={180}
-              height={60}
-              className="h-18 sm:h-21 md:h-23 lg:h-18 xl:h-25 2xl:h-29 w-auto object-contain"
-            />
-          </button>
+    <>
+      <header
+        className="
+           fixed top-0 left-0 right-0
+    w-full
+    h-[80px] lg:h-[100px]
+    z-[9999]
+   
+    py-2 lg:py-3
+        "
+      >
+        <div className="container-premium">
+          <div className="flex items-center justify-between w-full">
+            {/* Logo */}
+            <button
+              onClick={() => handleNavClick(null)}
+              className="flex items-center justify-center shrink-0 max-w-30 md:max-w-40 lg:max-w-none cursor-pointer"
+            >
+              <img
+                src="/logo.png"
+                alt="Vipin Tyagi Law Firm"
+                width={180}
+                height={60}
+                className="h-16 sm:h-18 md:h-20 lg:h-18 xl:h-25 2xl:h-29 w-auto object-contain"
+              />
+            </button>
 
-          {/* Desktop Nav */}
-          <nav
-            className="hidden lg:flex items-center whitespace-nowrap gap-0.5"
-            ref={dropdownRef}
-          >
-            {navLinks.map((link) =>
-              link.hasDropdown ? (
-                <div key={link.label} className="relative">
-                  <button
-                    onClick={() =>
-                      setActiveDropdown(
-                        activeDropdown === "locations" ? null : "locations",
-                      )
-                    }
-                    className={cn(
-                      "px-3 xl:px-4 py-2 text-sm font-medium rounded-lg flex items-center gap-1.5 transition-all duration-300 cursor-pointer",
-                      isScrolled
-                        ? "text-primary hover:bg-primary/10 hover:text-accent"
-                        : "text-white hover:bg-white/15 hover:text-accent",
-                      activeDropdown === "locations" && "bg-white/10",
-                    )}
-                    aria-haspopup="true"
-                    aria-expanded={activeDropdown === "locations"}
-                    aria-controls="desktop-locations-menu"
-                  >
-                    {link.label}
-                    <ChevronDown
+            {/* Desktop Nav */}
+            <nav
+              className="hidden lg:flex items-center whitespace-nowrap gap-0.5"
+              ref={dropdownRef}
+            >
+              {navLinks.map((link) =>
+                link.hasDropdown ? (
+                  <div key={link.label} className="relative">
+                    <button
+                      onClick={() =>
+                        setActiveDropdown(
+                          activeDropdown === "locations" ? null : "locations",
+                        )
+                      }
                       className={cn(
-                        "w-4 h-4 transition-transform duration-300",
-                        activeDropdown === "locations" && "rotate-180",
+                        "px-3 xl:px-4 py-2 text-sm font-medium rounded-lg flex items-center gap-1.5 transition-all duration-300 cursor-pointer text-white hover:bg-white/10 hover:text-accent",
+                        activeDropdown === "locations" && "bg-white/10",
                       )}
-                    />
-                  </button>
+                      aria-haspopup="true"
+                      aria-expanded={activeDropdown === "locations"}
+                      aria-controls="desktop-locations-menu"
+                    >
+                      {link.label}
+                      <ChevronDown
+                        className={cn(
+                          "w-4 h-4 transition-transform duration-300",
+                          activeDropdown === "locations" && "rotate-180",
+                        )}
+                      />
+                    </button>
 
-                  {activeDropdown === "locations" && (
-                    <div id="desktop-locations-menu" className="absolute top-full left-1/2 -translate-x-1/2 pt-4">
-                      <div className="bg-white rounded-xl shadow-premium-lg p-6 min-w-140 border border-border">
-                        <div className="flex items-center gap-2 mb-4 pb-3 border-b border-border">
-                          <MapPin className="w-5 h-5 text-accent" />
-                          <span className="font-serif font-semibold text-foreground">
-                            Our Offices Across India
-                          </span>
-                        </div>
-                        <div className="grid grid-cols-4 gap-5">
-                          {Object.entries(groupedCities).map(
-                            ([region, cityNames]) => (
-                              <div key={region}>
-                                <h4 className="text-xs font-semibold text-muted-foreground uppercase tracking-wider mb-3">
-                                  {region}
-                                </h4>
-                                <ul className="space-y-2">
-                                  {cityOffices
-                                    .filter((c) => cityNames.includes(c.name))
-                                    .map((city) => (
-                                      <li key={city.slug}>
-                                        <span className="text-sm text-foreground flex items-center gap-2 cursor-default">
-                                          <span className="w-1.5 h-1.5 rounded-full bg-accent/40" />
-                                          {city.name}
-                                        </span>
-                                      </li>
-                                    ))}
-                                </ul>
-                              </div>
-                            ),
-                          )}
-                        </div>
-                        <div className="mt-4 pt-4 border-t border-border">
-                          <button
-                            onClick={() => {
-                              setActiveDropdown(null);
-                              handleNavClick("locations");
-                            }}
-                            className="text-sm text-accent hover:text-accent/80 font-medium flex items-center gap-2 cursor-pointer"
-                          >
-                            View All Locations on Map →
-                          </button>
+                    {activeDropdown === "locations" && (
+                      <div
+                        id="desktop-locations-menu"
+                        className="absolute top-full left-1/2 -translate-x-1/2 pt-4"
+                      >
+                        <div className="bg-white rounded-xl shadow-premium-lg p-6 min-w-140 border border-border">
+                          <div className="flex items-center gap-2 mb-4 pb-3 border-b border-border">
+                            <MapPin className="w-5 h-5 text-accent" />
+                            <span className="font-serif font-semibold text-foreground">
+                              Our Offices Across India
+                            </span>
+                          </div>
+                          <div className="grid grid-cols-4 gap-5">
+                            {Object.entries(groupedCities).map(
+                              ([region, cityNames]) => (
+                                <div key={region}>
+                                  <h4 className="text-xs font-semibold text-muted-foreground uppercase tracking-wider mb-3">
+                                    {region}
+                                  </h4>
+                                  <ul className="space-y-2">
+                                    {cityOffices
+                                      .filter((c) => cityNames.includes(c.name))
+                                      .map((city) => (
+                                        <li key={city.slug}>
+                                          <span className="text-sm text-foreground flex items-center gap-2 cursor-default">
+                                            <span className="w-1.5 h-1.5 rounded-full bg-accent/40" />
+                                            {city.name}
+                                          </span>
+                                        </li>
+                                      ))}
+                                  </ul>
+                                </div>
+                              ),
+                            )}
+                          </div>
+                          <div className="mt-4 pt-4 border-t border-border">
+                            <button
+                              onClick={() => {
+                                setActiveDropdown(null);
+                                handleNavClick("locations");
+                              }}
+                              className="text-sm text-accent hover:text-accent/80 font-medium flex items-center gap-2 cursor-pointer"
+                            >
+                              View All Locations on Map →
+                            </button>
+                          </div>
                         </div>
                       </div>
-                    </div>
-                  )}
-                </div>
-              ) : (
-                <button
-                  key={link.label}
-                  onClick={() => handleNavClick(link.section)}
-                  className={cn(
-                    "px-3 xl:px-4 py-2 text-sm font-medium rounded-lg transition-all duration-300 cursor-pointer",
-                    isScrolled
-                      ? "text-primary hover:bg-primary/10 hover:text-accent"
-                      : "text-white hover:bg-white/15 hover:text-accent",
-                  )}
-                >
-                  {link.label}
-                </button>
-              ),
-            )}
-          </nav>
-
-          {/* CTA */}
-          <div className="flex items-center whitespace-nowrap gap-2 sm:gap-4">
-            <a
-              href="tel:+919350105180"
-              className={cn(
-                "hidden md:flex items-center gap-2 text-sm font-medium transition-colors",
-                isScrolled ? "text-primary" : "text-white",
+                    )}
+                  </div>
+                ) : (
+                  <button
+                    key={link.label}
+                    onClick={() => handleNavClick(link.section)}
+                    className={cn(
+                      "px-3 xl:px-4 py-2 text-sm font-medium rounded-lg transition-all duration-300 cursor-pointer text-white hover:bg-white/10 hover:text-accent",
+                    )}
+                  >
+                    {link.label}
+                  </button>
+                ),
               )}
-            >
-              <Phone className="w-4 h-4" />
-              <span className="hidden xl:inline">+91 9350105180</span>
-            </a>
-            <Button
-              size="sm"
-              onClick={() => handleNavClick("contact")}
-              className="hidden sm:inline-flex bg-accent text-accent-foreground hover:bg-accent/90 font-semibold shadow-lg cursor-pointer"
-            >
-              <span className="hidden lg:inline">Free Consultation</span>
-              <span className="lg:hidden">Consult</span>
-            </Button>
+            </nav>
+
+            {/* CTA */}
+            <div className="hidden lg:flex items-center gap-2 sm:gap-4">
+              <a
+                href="tel:+919350105180"
+                className="hidden md:flex items-center gap-2 text-sm font-medium text-white transition-colors"
+              >
+                <Phone className="w-4 h-4" />
+                <span className="hidden xl:inline">+91 9350105180</span>
+              </a>
+              <Button
+                size="sm"
+                onClick={() => handleNavClick("contact")}
+                className="hidden sm:inline-flex bg-accent text-accent-foreground hover:bg-accent/90 font-semibold shadow-lg cursor-pointer"
+              >
+                <span className="hidden lg:inline">Free Consultation</span>
+                <span className="lg:hidden">Consult</span>
+              </Button>
+            </div>
+
+            {/* Mobile Hamburger */}
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className={cn(
-                "lg:hidden flex items-center justify-center p-2 ml-auto cursor-pointer",
-                isScrolled || isMobileMenuOpen ? "text-black" : "text-white"
-              )}
+              className="lg:hidden relative z-[1001] flex shrink-0 items-center justify-center p-2 ml-auto text-white hover:text-accent transition-colors cursor-pointer"
               aria-label="Toggle navigation menu"
               aria-expanded={isMobileMenuOpen}
               aria-controls="mobile-navigation-menu"
@@ -249,13 +216,12 @@ export function Header() {
             </button>
           </div>
         </div>
-      </div>
-
+      </header>
       {/* Mobile Menu */}
       <div
         id="mobile-navigation-menu"
         className={cn(
-          "lg:hidden fixed inset-x-0 top-18 bottom-0 bg-primary overflow-y-auto transition-all duration-300",
+          "lg:hidden fixed left-0 right-0 top-[80px] bottom-0 bg-[#0B1F2A] text-white overflow-y-auto transition-all duration-300 z-[999]",
           isMobileMenuOpen
             ? "opacity-100 visible"
             : "opacity-0 invisible pointer-events-none",
@@ -271,7 +237,7 @@ export function Header() {
                       activeDropdown === "locations" ? null : "locations",
                     )
                   }
-                  className="w-full px-4 py-3 text-primary-foreground hover:bg-white/10 rounded-lg flex items-center justify-between cursor-pointer"
+                  className="w-full px-4 py-3 text-white hover:bg-white/10 rounded-lg flex items-center justify-between cursor-pointer"
                 >
                   <span className="font-medium">{link.label}</span>
                   <ChevronDown
@@ -286,7 +252,7 @@ export function Header() {
                     {cityOffices.map((city) => (
                       <span
                         key={city.slug}
-                        className="px-4 py-2 text-sm text-primary-foreground/70 rounded-lg"
+                        className="px-4 py-2 text-sm text-white/70 rounded-lg"
                       >
                         {city.name}
                       </span>
@@ -298,7 +264,7 @@ export function Header() {
               <button
                 key={link.label}
                 onClick={() => handleNavClick(link.section)}
-                className="px-4 py-3 text-primary-foreground hover:bg-white/10 rounded-lg text-left font-medium transition-colors cursor-pointer"
+                className="px-4 py-3 text-white hover:bg-white/10 rounded-lg text-left font-medium transition-colors cursor-pointer"
               >
                 {link.label}
               </button>
@@ -308,13 +274,13 @@ export function Header() {
           <div className="pt-6 mt-4 border-t border-white/10 space-y-3">
             <a
               href="tel:+919350105180"
-              className="flex items-center gap-3 px-4 py-3 text-primary-foreground hover:bg-white/10 rounded-lg"
+              className="flex items-center gap-3 px-4 py-3 text-white hover:bg-white/10 rounded-lg"
             >
               <Phone className="w-5 h-5" />
               +91 9350105180
             </a>
             <Button
-              className="w-full bg-accent text-accent-foreground hover:bg-accent/90 font-semibold cursor-pointer"
+              className="w-full bg-[#D9A441] text-black hover:bg-[#C99435] font-semibold cursor-pointer"
               onClick={() => handleNavClick("contact")}
             >
               Free Consultation
@@ -322,6 +288,6 @@ export function Header() {
           </div>
         </nav>
       </div>
-    </header>
+    </>
   );
 }
