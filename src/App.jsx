@@ -3,36 +3,41 @@ import { SmoothScrollProvider } from '@/components/providers/smooth-scroll-provi
 import { Header } from '@/components/layout/header';
 import { Footer } from '@/components/layout/footer';
 import { DisclaimerModal } from '@/components/common/DisclaimerModal';
-
+import LaunchPage from "./pages/LaunchPage";
 import HomePage from '@/pages/HomePage';
 import PrivacyPage from '@/pages/PrivacyPage';
 import TermsPage from '@/pages/TermsPage';
 import DisclaimerPage from '@/pages/DisclaimerPage';
 import NotFoundPage from '@/pages/NotFoundPage';
+const LAUNCH_MODE = true;
 
 export default function App() {
   return (
     <BrowserRouter>
-      <div className="font-sans antialiased overflow-x-hidden bg-background">
-        {/* Disclaimer Popup */}
-        <DisclaimerModal />
+      {LAUNCH_MODE ? (
+        <LaunchPage />
+      ) : (
+        <div className="font-sans antialiased overflow-x-hidden bg-background">
+          {/* Disclaimer Popup */}
+          <DisclaimerModal />
 
-        <SmoothScrollProvider>
-          <Header />
+          <SmoothScrollProvider>
+            <Header />
 
-          <main className="overflow-x-hidden">
-            <Routes>
-              <Route path="/" element={<HomePage />} />
-              <Route path="/privacy" element={<PrivacyPage />} />
-              <Route path="/terms" element={<TermsPage />} />
-              <Route path="/disclaimer" element={<DisclaimerPage />} />
-              <Route path="*" element={<NotFoundPage />} />
-            </Routes>
-          </main>
+            <main className="overflow-x-hidden">
+              <Routes>
+                <Route path="/" element={<HomePage />} />
+                <Route path="/privacy" element={<PrivacyPage />} />
+                <Route path="/terms" element={<TermsPage />} />
+                <Route path="/disclaimer" element={<DisclaimerPage />} />
+                <Route path="*" element={<NotFoundPage />} />
+              </Routes>
+            </main>
 
-          <Footer />
-        </SmoothScrollProvider>
-      </div>
+            <Footer />
+          </SmoothScrollProvider>
+        </div>
+      )}
     </BrowserRouter>
   );
 }
