@@ -1,5 +1,5 @@
 import React from "react";
-import './launchPage.css'; // Import the CSS file for styling
+import './launchpage.css';
 
 export default function LaunchPage() {
   return (
