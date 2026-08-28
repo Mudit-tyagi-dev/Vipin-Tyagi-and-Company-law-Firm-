@@ -25,7 +25,7 @@ export default function LaunchPage() {
 
         <p className="launch-label">LAUNCHING ON</p>
 
-        <h1>28th August 2026 <br/>12:15 PM</h1>
+        <h1>28th August 2026 <br/><span className="blink-letter">12:15 PM</span></h1>
 
         <div className="gold-divider">
           <span />

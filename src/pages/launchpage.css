@@ -1,3 +1,17 @@
+@keyframes smoothFade {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.2; /* Using 0.2 instead of 0 prevents harsh layout pops */
+  }
+}
+
+.blink-letter {
+  animation: smoothFade 1s infinite ease-in-out;
+
+}
+
 /* Launch Page */
 .launch-page {
   position: relative;
