@@ -92,7 +92,7 @@ function VideoCard({ video, index }) {
   );
 }
 
-export function SuccessStoriesSection() {
+export function LegalInsightsSection() {
   const sectionRef = useRef(null);
 
   useEffect(() => {

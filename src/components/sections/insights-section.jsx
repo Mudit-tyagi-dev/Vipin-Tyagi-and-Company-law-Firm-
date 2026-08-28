@@ -49,6 +49,27 @@ const galleryImages = [
     id: 15,
     src: "/images/gallery/WhatsApp Image 2026-06-03 at 1.23.53 AM.jpeg",
   },
+  {
+    id: 16,
+    src: "/images/gallery/10.jpeg",
+  },
+  {
+    id: 17,
+    src: "/images/gallery/11.jpeg",
+  },
+  {
+    id: 18,
+    src: "/images/gallery/12.jpeg",
+  },
+  {
+    id: 19,
+    src: "/images/gallery/13.jpeg",
+  },
+   {
+    id: 20,
+    src: "/images/gallery/14.jpeg",
+  },
+
 ];
 
 const PREVIEW_COUNT = 6; // pehle kitni images dikhni hain

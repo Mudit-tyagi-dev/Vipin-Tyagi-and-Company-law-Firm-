@@ -62,10 +62,7 @@ export function Header() {
     <>
       <header
         className="
-           fixed top-0 left-0 right-0
-    w-full
-    h-[80px] lg:h-[100px]
-    z-[9999]
+          //  fixed top-0 left-0 right-0 w-full h-20 lg:h-25 z-1000
    
     py-2 lg:py-3
         "
@@ -188,7 +185,7 @@ export function Header() {
                 className="hidden md:flex items-center gap-2 text-sm font-medium text-white transition-colors"
               >
                 <Phone className="w-4 h-4" />
-                <span className="hidden xl:inline">+91 9350105180</span>
+                <span className="hidden xl:inline text-body">+91 9350105180</span>
               </a>
               <Button
                 size="sm"
@@ -203,7 +200,10 @@ export function Header() {
             {/* Mobile Hamburger */}
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="lg:hidden relative z-[1001] flex shrink-0 items-center justify-center p-2 ml-auto text-white hover:text-accent transition-colors cursor-pointer"
+              className={cn(
+                "lg:hidden relative z-[1001] flex shrink-0 items-center justify-center p-2 ml-auto hover:text-accent transition-colors cursor-pointer",
+                isMobileMenuOpen ? "text-white" : "text-primary md:text-white"
+              )}
               aria-label="Toggle navigation menu"
               aria-expanded={isMobileMenuOpen}
               aria-controls="mobile-navigation-menu"

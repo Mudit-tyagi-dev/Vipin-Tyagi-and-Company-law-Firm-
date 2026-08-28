@@ -42,7 +42,7 @@ export default function PrivacyPage() {
               <p>
                 Vipin Tyagi & Company ("we", "us", or "our") operates the website{' '}
                 <a href="/" className="text-accent hover:underline">
-                  vipintyagilawfirm.in
+                  www.vipintyagiandcompany.com
                 </a>. We are committed to protecting your personal information and your right to privacy. If you have any questions or concerns about our policy, or our practices with regards to your personal information, please contact us.
               </p>
             </div>
